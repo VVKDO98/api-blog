@@ -11,27 +11,31 @@ datasource db {
 }
 
 model Users {
-  id Int @id @default(autoincrement())
-  name String
-  email String @unique
-  password String
-  username String @unique
-  title String?
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String   @unique
+  password   String
+  username   String   @unique
+  title      String?
   created_at DateTime
+  Posts      Posts[]
 }
 
 model Posts {
-  id Int @id @default(autoincrement())
-  title String
-  excerpt String
-  body String
+  id          Int        @id @default(autoincrement())
+  title       String
+  excerpt     String
+  body        String
+  categories  Categories @relation(fields: [category_id], references: [id])
   category_id Int
-  user_id Int
-  created_at DateTime
+  user        Users      @relation(fields: [user_id], references: [id])
+  user_id     Int
+  created_at  DateTime
 }
 
 model Categories {
-  id Int @id @default(autoincrement())
-  name String @unique
-  slug String @unique
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  slug  String  @unique
+  posts Posts[]
 }

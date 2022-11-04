@@ -10,8 +10,27 @@ app.use(express.json());
 
 // Get routes
 app.get("/posts", async (req, res) => {
-    const allPosts = await prisma.posts.findMany();
+    const allPosts = await prisma.posts.findMany({
+        include: {
+            user: true,
+            categories: true,
+        },
+    });
     res.send(allPosts);
+});
+
+app.get("/post/:pid", async (req, res) => {
+    const pid = parseInt(req.params.pid);
+    const post = await prisma.posts.findUnique({
+        where: {
+            id: pid,
+        },
+        include: {
+            user: true,
+            categories: true,
+        },
+    });
+    res.send(post);
 });
 
 app.get("/categories", async (req, res) => {
@@ -64,6 +83,19 @@ app.post("/category", async (req, res) => {
         },
     });
     res.send(cateogry);
+});
+
+app.get("/category/:cid", async (req, res) => {
+    const cid = parseInt(req.params.cid);
+    const category = await prisma.categories.findUnique({
+        where: {
+            id: cid,
+        },
+        include: {
+            posts: true,
+        },
+    });
+    res.send(category);
 });
 
 app.listen(port, () => {
