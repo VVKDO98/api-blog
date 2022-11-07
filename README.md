@@ -6,8 +6,9 @@ Small API under development to create a blog.
 
 -   [x] Get route
 -   [x] Post route
--   [ ] Put route
--   [ ] Delete route
+-   [x] Put route
+-   [x] Delete route
+-   [x] Hosting
 
 ## Start this project
 
@@ -23,12 +24,10 @@ Production :
 npm run start
 ```
 
-<!-- ## Set up project
-
-1. Edit -->
-
 ## Links
 
+-   [API](https://api-blog-janh.onrender.com/)
 -   [NodeJS](https://nodejs.org/en/)
 -   [Prisma](https://www.prisma.io/)
 -   [Express](https://expressjs.com/fr/)
+-   [Render](https://render.com)
