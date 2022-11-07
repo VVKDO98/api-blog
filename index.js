@@ -9,6 +9,10 @@ const port = 3000;
 app.use(express.json());
 
 // Routes
+app.get("/", (req, res) => {
+    res.send({ Hello: "world" });
+});
+
 const routesPath = path.join(__dirname, "./routes");
 const routesDir = fs.readdirSync(routesPath);
 
