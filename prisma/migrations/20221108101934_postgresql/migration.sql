@@ -20,7 +20,7 @@ CREATE TABLE "Posts" (
     "image_url" TEXT,
     "category_id" INTEGER NOT NULL,
     "user_id" INTEGER NOT NULL,
-    "created_at" TIMESTAMP(3) NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Posts_pkey" PRIMARY KEY ("id")
 );
