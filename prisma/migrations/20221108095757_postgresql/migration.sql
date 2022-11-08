@@ -17,6 +17,7 @@ CREATE TABLE "Posts" (
     "title" TEXT NOT NULL,
     "excerpt" TEXT NOT NULL,
     "body" TEXT NOT NULL,
+    "image_url" TEXT,
     "category_id" INTEGER NOT NULL,
     "user_id" INTEGER NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL,
